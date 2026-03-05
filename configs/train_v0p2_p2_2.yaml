@@ -1,0 +1,33 @@
+data:
+  dataset: vctk
+  train_subset_size: 2000
+  val_subset_size: 400
+
+model:
+  n_fft: 512
+  hop_length: 128
+  win_length: 512
+  n_bands: 64
+  hidden_channels: 128
+  num_layers: 4
+  kernel_size: 3
+  lookahead: 0
+  alpha: 0.18
+
+train:
+  seed: 42
+  device: cuda
+  batch_size: 8
+  lr: 0.001
+  max_steps: 1000
+  eot_prob: 0.8
+  log_every: 20
+  val_every: 100
+  val_batches: 5
+  stage1_steps: 200
+
+loss:
+  w_spk: 2.5
+  w_rec: 1.0
+  w_intra: 1.0
+  w_energy: 0.1

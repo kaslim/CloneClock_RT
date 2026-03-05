@@ -1,0 +1,38 @@
+# telephony.yaml — 电话信道仿真配置
+telephony:
+  sample_rate: 16000
+  seed: 42
+
+  # A) Band-limit: 300–3400Hz
+  bandlimit:
+    enabled: true
+    low_hz: 300
+    high_hz: 3400
+    order: 6
+
+  # B) Resample: 16k -> 8k -> 16k
+  resample:
+    enabled: true
+    narrowband_rate: 8000
+
+  # C) Random gain / AGC-like
+  gain:
+    enabled: true
+    db_min: -6.0
+    db_max: 6.0
+  agc_like:
+    compressor_enabled: true
+    threshold_db: -20.0
+    ratio: 2.0
+
+  # D) Additive noise
+  noise:
+    enabled: true
+    snr_db_min: 20.0
+    snr_db_max: 35.0
+
+  # E) Optional codec (requires ffmpeg)
+  codec:
+    enabled: false
+    name: opus
+    bitrate: 16k

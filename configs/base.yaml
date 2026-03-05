@@ -1,0 +1,7 @@
+# base.yaml — 基础配置
+seed: 42
+device: cuda
+
+# 数据集选择：librispeech | vctk（与 data/processed/<dataset>/、data/splits/<dataset>/ 对应）
+data:
+  dataset: librispeech
